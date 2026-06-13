@@ -45,7 +45,7 @@ root.render(
           <Route
             path='/dashboard'
             element={
-              <ProtectedRoute><Hero/></ProtectedRoute>
+              <Hero/>
             }
           />
       
