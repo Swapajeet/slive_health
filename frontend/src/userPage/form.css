@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form-page {
+  min-height: 100vh;
+  background: #f4f7fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.prediction-card {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: crimson;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  transform: scale(1.05);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #222;
+  font-size: 32px;
+}
+
+.prediction-form {
+  display: grid;
+  grid-template-columns:
+    repeat(2, 1fr);
+  gap: 20px;
+}
+
+.prediction-form input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.prediction-form input:focus {
+  border-color: #3498db;
+  box-shadow:
+    0 0 8px
+    rgba(52, 152, 219, 0.3);
+}
+
+.predict-btn {
+  grid-column: span 2;
+  border: none;
+  background: #3498db;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.predict-btn:hover {
+  background: #2980b9;
+}
+
+.result-box {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  background: #f8fbff;
+  border-left: 6px solid #3498db;
+  text-align: center;
+}
+
+.disease-name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 10px 0;
+}
+
+.confidence {
+  font-size: 20px;
+  color: #555;
+}
+
+.graph-section {
+  margin-top: 30px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .prediction-form {
+    grid-template-columns: 1fr;
+  }
+
+  .predict-btn {
+    grid-column: span 1;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+}
+
+/* Loader Overlay */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-box {
+  background: white;
+  padding: 30px 50px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* Spinner */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ddd;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Disabled button */
+.predict-btn:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
