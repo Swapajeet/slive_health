@@ -290,6 +290,28 @@ app.get("/logout", (req, res) => {
 
 });
 
+app.get("/verify", (req, res) => {
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res.status(401).json({
+      success: false,
+    });
+  }
+
+  try {
+    jwt.verify(token, process.env.TOKEN_KEY);
+
+    return res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    return res.status(401).json({
+      success: false,
+    });
+  }
+});
+
 
 app.listen(3001,
 () => {
