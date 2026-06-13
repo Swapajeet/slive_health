@@ -206,9 +206,11 @@ app.post("/predict", async (req, res) => {
     const token = createSecretToken(user._id);
 
     // Save token in cookie
-    res.cookie("token", token, {
-      httpOnly: true,
-    });
+   res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+});
 
     // Response
     return res.status(201).json({
@@ -258,10 +260,11 @@ app.post("/login", async (req, res) => {
 
     const token = createSecretToken(user._id);
 
-    res.cookie("token", token, {
-      withCredentials: true,
-      httpOnly: false,
-    });
+   res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+});
 
     return res.status(200).json({
       message: "User logged in successfully",
