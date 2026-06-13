@@ -45,7 +45,7 @@ const Login = () => {
 
         setTimeout(() => {
           window.location.href =
-            "http://localhost:3000/dashboard";
+            "https://slive-health-1.onrender.com/dashboard";
         }, 1000);
       } else {
         handleError(message);
