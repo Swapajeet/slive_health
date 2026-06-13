@@ -81,7 +81,7 @@ function Form() {
   const Logout = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:3001/logout",
+        "https://slive-health.onrender.com/logout",
         { withCredentials: true }
       );
 
